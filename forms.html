@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <center>
+        <h1>STUDENT RIGISTER FORM</h1>
+        <table  style="color: brown;">
+            <tr>
+                <td><label>First Name</label> </td>
+                <td><input type="text" placeholder="Enter First Name" required  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Last Name</label></td>
+                <td><input type="text" placeholder="Enter Last Name" required  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Gender</label></td>
+                <td><input type="radio" name="Gender" required><label style="color: black;">Male</label>
+                    <input type="radio" name="Gender" required><label style="color: black;">Female</label> </td>
+            </tr>
+            <tr>
+                <td><label>Age</label></td>
+                <td><input type="number" placeholder="Enter your Age"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Date-of-Birth</label></td>
+                <td><input type="date"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Email Address</label></td>
+                <td><input type="email" placeholder="Enter the Email"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" placeholder="Enter the password min 8 characters"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Confirm Password</label></td>
+                <td><input type="password" placeholder="Confirm password"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Phone Number</label></td>
+                <td> <input type="tel" placeholder="Enter the Phone Number" style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Address </label></td>
+                <td><input type="text" placeholder="Enter your Address"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>State</label></td>
+                <td>
+                    <select  style="width: 82.5%;">
+                        <option>Select Your State</option>
+                        <option>Tamilnadu</option>
+                        <option>Andhra pradash</option>
+                        <option>Kerala</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Pin Code</label></td>
+                <td><input type="number" minlength="6" maxlength="6" placeholder="Enter the Pin Code"  style="width: 80%; border-color: palevioletred;"></td>
+            </tr>
+            <tr>
+                <td><label>Hobbies</label></td>
+                <td><input type="checkbox"> Music
+                    <input type="checkbox"> Movies
+                    <input type="checkbox"> Sports
+                    <input type="checkbox"> Travel</td>
+            </tr>
+            <tr>
+                <td><label >Upload Photo</label></td>
+                <td><input type="file"></td>
+            </tr>
+        </table>
+        <input type="checkbox"><label>I here by declare that the above information provided is true and correct.</label><br> 
+        <input type="submit" value="Register">
+                    <input type="reset"><br>        
+        </center>
+    </form>
+</body>
+</html>

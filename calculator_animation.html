@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Calculator</title>
+<style>
+  body {
+    text-align: center;
+    padding-top: 200px;
+  }
+  .calculator {
+    max-width: 300px;
+    height: 330px;
+    margin: 0 auto;
+    border: 5px solid;
+    border-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e5eded80;
+    animation: move 9s infinite ;
+  }
+@keyframes move {
+        0%{border-left-color:gold;}
+        25%{border-top-color:gold;}
+        50%{border-right-color:gold;}
+        100%{border-bottom-color:gold}
+    } 
+  .calculator input[type="button"] {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    margin: 5px;
+    border: none;
+    background-color: gray;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset 10px 10px 9px 6px rgba(0, 0, 0, 0.483);
+  }
+  .calculator input[type="button"]:active {
+    transform: scale(0.80);
+  }
+  input{
+    width: 80%;
+    height: 35px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 10px;
+    border-width:5px;
+  }
+  #abc{
+    background-color: orange;
+    color: white;
+    font-size: 25px;
+    
+  }
+  #cba{
+    background-color: red;
+    color: white;
+    box-shadow: inset 0px 25px 5px 0px rgba(0, 0, 0, 0.483);
+  }
+</style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <br>
+    <input type="button" value="1" onclick="appendValue('1')">
+    <input type="button" value="2" onclick="appendValue('2')">
+    <input type="button" value="3" onclick="appendValue('3')">
+    <input type="button" value="+" id="abc" onclick="appendValue('+')">
+    <br>
+    <input type="button" value="4" onclick="appendValue('4')">
+    <input type="button" value="5" onclick="appendValue('5')">
+    <input type="button" value="6" onclick="appendValue('6')">
+    <input type="button" value="-" id="abc" onclick="appendValue('-')">
+    <br>
+    <input type="button" value="7" onclick="appendValue('7')">
+    <input type="button" value="8" onclick="appendValue('8')">
+    <input type="button" value="9" onclick="appendValue('9')">
+    <input type="button" value="x" id="abc" onclick="appendValue('*')">
+    <br>
+    <input type="button" value="C" id="cba" onclick="clearResult()">
+    <input type="button" value="0" onclick="appendValue('0')">
+    <input type="button" value="=" id="abc" onclick="calculateResult()">
+    <input type="button" value="/" id="abc" onclick="appendValue('/')">
+  </div>
+  <script>
+    function appendValue(value) {
+      document.getElementById('result').value += value;
+    }
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+    function calculateResult() 
+    {
+        document.getElementById('result').value = eval(document.getElementById('result').value);
+    } 
+  </script>
+</body>
+</html>
+
