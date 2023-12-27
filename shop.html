@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Products</title>
+    <style>
+        body{
+            background-image: url("maligai.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        @media only screen and (max-width:600px)
+        {
+            
+        }
+        fieldset {
+            width: 82.5%;
+            margin-top: 40px;
+            border: 10px solid red;
+            background-color: aquamarine;
+            color: blueviolet;
+            border-radius: 25px;
+            opacity: 0.9;
+        }
+        legend {
+            font-size: 50px;
+            margin-left: 38%;
+            background-color: rebeccapurple;
+            color: red;
+            border-radius: 20px;
+        }
+        input {
+            display: inline-block;
+            height: 40px;
+            width: 160px;
+            font-size: 20px;
+            padding-right: 10px;
+            padding-left: 30px;
+            font-weight: bold;
+        }
+        ::placeholder {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            font-size: 30px;
+            color: green;
+            font-weight: bold;
+        }
+        div {
+            display: inline;
+            padding-left: 25px;
+        }
+        button {
+            height: 50px;
+            width: 130px;
+            font-size: 30px;
+        }
+        button:hover{
+            transform: scale(0.70);
+            border-radius: 20px;
+            color: red;
+            font-weight: bold;
+            border: 2px solid red;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 4px solid black;
+            border-radius: 25px;
+        }
+        td {
+            border: 4px solid black;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 25px;
+        }
+        h1{
+            font-size: 50px;
+            background: linear-gradient(rgb(123, 82, 82) 20%,rgb(196, 223, 89));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #FN {
+            color: rgb(20, 3, 252);
+        }
+        #Title{
+            color: rgb(240, 5, 134);
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <fieldset>
+            <legend>Products Details</legend>
+            <h1>APPU_BOBBY MALIGAI STORES</h1>
+            <div id="pd">
+                <input type="text" placeholder="Product Name" id="pn" oninput="capitalizeFirstLetter()">
+                <label>ITEMS</label>
+            </div>
+            <div id="Rate">
+                <input type="number" placeholder="Price" id="p">
+                <label>PRICE</label>
+            </div>
+            <div id="qty">
+                <input type="number" placeholder="Quantity" id="q">
+                <label>Qty</label>
+            </div>
+        <!------------------------------------------------------------------->
+            <div id="add" onclick="add()">
+                <button>Add</button>
+            </div>
+            <div id="Allclear" onclick="Allclear()">
+                <button>AllClear</button>
+            </div>
+            <br>
+        <!------------------------------------------------------------------->
+            <table id="tbl">
+                <thead>
+                    <tr id="Title">
+                        <td>S.NO</td>
+                        <td>Product Name</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody id="tb1"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right;">Overall Total:</td>
+                        <td id="Overall_Total">0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;">SGST :</td>
+                        <td id="SGST">0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;">CGST :</td>
+                        <td id="CGST">0.00</td>
+                    </tr>
+                    <tr id="FN">
+                        <td colspan="4" style="text-align: right;">Final Amount :</td>
+                        <td id="FA">0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        <!------------------------------------------------------------------->
+        <script>
+            var sno = 1;
+            var overallTotal = 0;
+            var SGST=0;
+            var CGST=0;
+            var Final=0;
+
+            function capitalizeFirstLetter() 
+            {
+                var input = document.getElementById("pn");
+                var inputValue = input.value;
+                input.value = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+            }
+            function add() 
+            {
+                var productName = document.getElementById("pn").value;
+                var capitalizedProductName = productName.charAt(0).toUpperCase() +productName.slice(1);
+                var price = parseFloat(document.getElementById("p").value);
+                var quantity = parseInt(document.getElementById("q").value);
+
+                var total=price*quantity;
+                overallTotal+=total;
+                SGST=overallTotal/14;
+                CGST=overallTotal/14;
+                Final=overallTotal+SGST+CGST;
+
+                var tb1 = document.getElementById("tb1");
+                var row = tb1.insertRow(-1);
+                var col1 = row.insertCell(0);
+                var col2 = row.insertCell(1);
+                var col3 = row.insertCell(2);
+                var col4 = row.insertCell(3);
+                var col5 = row.insertCell(4);
+
+                col1.innerHTML = sno++;
+                col2.innerHTML = capitalizedProductName;
+                col3.innerHTML = price;
+                col4.innerHTML = quantity;
+                col5.innerHTML = total.toFixed(2);
+
+                document.getElementById("Overall_Total").innerHTML=overallTotal.toFixed(2);
+                document.getElementById("SGST").innerHTML=SGST.toFixed(2);
+                document.getElementById("CGST").innerHTML=CGST.toFixed(2);
+                document.getElementById("FA").innerHTML=Final.toFixed(2);
+                clr();
+            }   
+            function clr()
+            {
+                document.getElementById("pn").value = "";
+                document.getElementById("p").value = "";
+                document.getElementById("q").value = "";
+            }
+            function Allclear() 
+            {
+                document.getElementById("pn").value = "";
+                document.getElementById("p").value = "";
+                document.getElementById("q").value = "";
+                document.getElementById("tb1").innerHTML = "";
+                document.getElementById("Overall_Total").innerHTML = "0.00";
+                document.getElementById("SGST").innerHTML = "0.00";
+                document.getElementById("CGST").innerHTML = "0.00";
+                document.getElementById("FA").innerHTML = "0.00";
+                sno = 1;
+                overallTotal=0;
+                SGST=0;
+                CGST=0;
+                Final=0;
+            }
+        </script>
+        </fieldset>
+    </center>
+</body>
+</html>

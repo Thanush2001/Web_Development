@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket</title>
+    <style>
+        h1{
+            font-size: 50px;
+            color: red;
+            text-shadow: 5px 5px 5px greenyellow;
+        }
+        fieldset{
+            height: 32%;
+            width: 30%;
+            margin-top: 20%;
+            border:10px solid red;
+            position: absolute;
+            right: 33%;
+            padding-bottom: 30px;
+            box-shadow: 15px 15px 5px greenyellow;
+         }
+         body{
+            background-size: 100%;
+            background-image: url("hand_cricket.jpg");
+            background-repeat: no-repeat;
+         }
+         #num button{
+            height: 55px;
+            width: 55px;
+            font-size: 25px;
+         }
+         #num[type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+        }
+        button{
+            width: 85%;
+            height: 40px;
+            font-size: 30px;
+         }
+         button:active{
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+         }
+        [type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+        }
+        p{
+            color: white;
+            font-size: 35px;
+            margin: 0%;
+            display: inline-block;
+        }
+        [type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 30px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <center>
+                <h1>Hand Cricket Game</h1>
+                <div id="num">
+                    <button onclick="change(0)">0</button>
+                    <button onclick="change(1)">1</button>
+                    <button onclick="change(2)">2</button>
+                    <button onclick="change(3)">3</button>
+                    <button onclick="change(4)">4</button>
+                    <button onclick="change(5)">5</button>
+                    <button onclick="change(6)">6</button>
+                </div><br>
+                <p id="selected_number">Selected Number : 0</p><br><br>
+                <p id="total">Total : 0</p>
+            </center>
+        </fieldset>
+    </div>
+    <script>
+        var total = 0; 
+        function change(number) 
+        {   
+            document.getElementById('selected_number').innerHTML ="Selected Number : " + number;
+            var systemNumber = Math.floor(Math.random() *7);
+            if(number == systemNumber) 
+            {
+                alert("System number : " + systemNumber + ". It's matched, You lose! Your Total score : " + total);
+                total=total-number; 
+                resetGame();
+            } 
+            else 
+            {   alert("System Number: "+systemNumber);
+                total=total+number; 
+            }
+            document.getElementById('total').innerHTML = "Total : " + total;
+        }
+        function resetGame() 
+        {
+            selected_number=0;
+            total = 0;
+            document.getElementById('selected_number').innerHTML = "Selected Number : 0";
+        }
+    </script>
+</body>
+</html>

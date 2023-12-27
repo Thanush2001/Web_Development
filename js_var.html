@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            height: 33px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+
+    <button onclick="compare()">Compare</button>
+
+    <script>
+        function compare()
+        {
+            var num1=document.getElementById("num1");
+            var num2=document.getElementById("num2");
+            if(parseInt(num1.value)>parseInt(num2.value))
+            {
+                alert("A Largest number");
+            }
+            else
+            {
+                alert("B Largest number")
+            }
+        }
+    </script>
+    
+</body>
+</html>

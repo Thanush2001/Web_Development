@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        fieldset{
+            height: 400px;
+            width: 350px;
+            border-top-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+            border-color:orange;
+            transition: padding 2s;
+            transition-delay: 1s;
+            animation-name: abc;
+            margin-right: 20%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes abc{
+            0%{border-color: red;}
+            25%{border-color: green;}
+            50%{border-color: blue;}
+            75%{border-color: gray;}
+            100%{border-color: red;}
+        }
+        fieldset:hover{
+            padding: 40px;
+        }
+        body{
+            background-image: url(light\ lamp.jpg);
+            background-size:100%;
+            margin-top: 150px;
+        }
+        button{
+            height: 40px;
+            width: 90%;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 20px;
+            background-color: rgb(199, 34, 61);
+            color: white;
+        }
+        .abc input{
+            display: inline-block;
+            border-top:hidden;
+            border-left: hidden;
+            border-right: hidden;
+            border-bottom: 1px solid #000; /* Keep only the bottom border */
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            height: 30px;
+            width: 80%;
+            background-color: transparent;
+            border-color: white;
+
+        }
+        .abc{
+            position: relative;
+        }
+        .abc label{
+            color: white;
+            padding-right: 20%;
+            font-weight: 900;
+            position: absolute;
+            top: 8px;
+            left: 19px;
+            transition: top 0.3s;
+        }
+        input:focus + .abc label {
+                top: -10px;
+                }
+        .zyx input{
+            display: inline-block;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border: none;
+            border-bottom: 1px solid #000; /* Keep only the bottom border */
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            height: 30px;
+            width: 80%;
+            background-color: transparent;
+            border-color: white;
+        }
+        .zyx label{
+            color: white;
+            padding-right: 68%;
+            font-weight: 900;
+            position: relative;
+            top: 8px;
+            right: 5px;
+            transition: top 0.3s;
+        }
+        .abc img{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+        }
+        .zyx img{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+        } 
+        .cba{
+            display: inline-block;
+            width: 100%;
+        }
+        .cba input{
+            height: 15px;
+            width: 15px;
+        }
+        .cba label{
+            display: inline-block;
+            position: relative;
+            top: 0;
+            transition: top 0.3s;
+        }
+        a {
+            text-decoration: none;
+        }
+        h2{
+            padding-top: 50px;
+            font-size: 50px;
+        }
+        input:focus + .zyx label {
+                top: -20px;
+                }
+    </style>
+</head>
+<body>
+    <center>
+    <fieldset>
+        <h1 style="color: white;">Login Here</h1><br>
+        <form>
+            <div class="abc">
+            <label>Email</label><BR>
+            <input TYPE="TEXT" required>&nbsp;&nbsp;&nbsp;<img src="email.jpg"><br>
+            </div>
+            <div class="zyx">
+            <label>Password</label><br>
+            <input TYPE="password"  id="pass" required>&nbsp;&nbsp;&nbsp;<img src="lock.jpg"><BR>
+            </div><br>
+            <div class="cba">
+            <input type="checkbox" id="check">
+            <label>Show Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label >Forget Password</label>
+            </div>
+                <br><br>
+                <button>Log In</button><br><br>
+                <B style="color: white;">Don't have an account ?</B>
+                <a style="color: white;">register</a>
+        </form>
+    </fieldset>
+    <h2>Watch Fully For better Experience</h2>
+</center>    
+<script>
+    check.onclick=showpassword;
+    function showpassword()
+    {
+        if(check.checked)
+            pass.type="text";
+        else
+            pass.type="password";
+    }
+</script>
+</body>
+</html>

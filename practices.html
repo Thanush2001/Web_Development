@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd even</title>
+</head>
+<body>
+    <form>
+    <input type="text" id="un" value="tha"><br><br>
+    <input type="password" id="pwd" value="tha@12"><br><br>
+    <input type="checkbox" id="check" onclick="showpassword()">
+    <button onclick="abc()">Login</button>
+    </form>
+    <img id="img" src="Share.jpg" alt="Share symbol image">
+    <button onclick="cba()">Change image</button>
+    <script>
+        function cba()
+        {
+        let element=document.getElementById("img");
+        element.src="tree.jpg";
+        }
+        function showpassword()
+        {
+            if(check.checked)
+            pwd.type="text";
+            else
+            pwd.type="password";
+        }
+        function abc()
+        {
+        let element1=document.getElementById("un");
+        let element2=document.getElementById("pwd");
+        if(element1.value=="Thanush" && element2.value=="Appu@123")
+        {
+            alert("login Successfully");
+        }
+        else{
+            alert("invaid username or password");
+        }
+    }
+    /*
+        var prime=0;
+        var a=13;
+        var i=1;
+        var c=0;
+       while(a>=i)
+       {
+        if(a%i==0)
+        {
+            prime=prime+1; 
+        }
+        i=i+1;
+        }
+        if(prime==2)
+       {
+        console.log("prime number");
+       }
+=====================================================
+       var p= 0;
+       var c=0;
+        for(var n=200;n<=500; n=n+1)
+        {
+            for (var i=1; i<=n; i=i+1)
+            {
+                if (n%i== 0)
+                {
+                    p=p+1;
+                }
+            }
+                if (p==2)
+                {
+                    console.log(n);
+                    c=c+1
+                }
+                p = 0;
+        }
+        console.log("Total prime numbers between--200 to 500: " + c);
+        let a=5;
+        let b=6;
+        let i=1;
+        
+        while(i<=5)
+        {
+            let c=a+b;
+            console.log(c);
+            a=b;
+            b=c;
+        }
+        */
+       
+    </script>
+</body>
+</html>

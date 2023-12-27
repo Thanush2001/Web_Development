@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pics</title>
+    <style>
+        fieldset {
+            height: 45%;
+            width: 30%;
+            margin-top: 100px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            height: 500px;
+            width: 500px;
+        }
+        button{
+            border-radius: 20px;
+            border: 3px solid red;
+            height: 40px;
+            width: 35%;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: aqua;
+            -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+        }
+        h1{
+            font-size: 60px;
+            font-weight: bold;
+            background-image: url('man.jpg')center;
+            background-size: cover;
+            -webkit-text-fill-color: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <fieldset>
+            <h1>Image SlideShow</h1>
+            <img id="img" src="" alt="Photos">
+            <br><br>
+            <button onclick="prev_Pic()">Previous</button>
+            <button onclick="next_Pic()">Next</button>
+            <br>
+        </fieldset>
+    </center>
+
+    <script>
+        var pics=[
+            'char.jpg',
+            'email.jpg',
+            'friends.jpg',
+            'hand_cricket.jpg',
+            'insta.jpg',
+            'lock.jpg',
+            'Oneplus.jpg',
+            'robort.jpg',
+            'tiger.jpg',
+            'search.jpg',
+            'Share.jpg',
+            'sky.png'
+        ];
+
+        var Index=0;
+        var A=document.getElementById('img');
+
+        function display_Current_Pic() 
+        {
+            A.src=pics[Index];
+            // alert("Index number:"+(Index+1));
+        }
+        function next_Pic() 
+        {
+            Index=(Index+1)%pics.length;
+            display_Current_Pic();
+        }
+        function prev_Pic() 
+        {
+            Index=(Index-1 +pics.length)%pics.length;
+            display_Current_Pic();
+        }
+        display_Current_Pic();
+    </script>
+</body>
+</html>

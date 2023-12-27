@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Details</title>
+    <style>
+        body{
+            background-color: rgb(115, 209, 238);
+        }
+        .img{
+            position: relative;
+            top: 1px;
+            left: 1px;
+            display: inline-block;
+            opacity: 0.7;
+            box-shadow: 25px 15px 15px red;
+        }
+        .main{
+            height: 74.4%;
+            width: 72%;
+            border: 5px solid black;
+            border-radius: 15px;
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            animation-name: animi;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            
+        }
+        @keyframes animi{
+            0%{border-left-color:blue;}
+            25%{border-top-color:black;}
+            50%{border-right-color:green;}
+            75%{border-bottom-color: blueviolet;}
+            100%{border-bottom-color:red}
+        }
+        h1{
+            display: inline-block;
+            position:absolute;
+            left: 45%;
+            font-size: 45px;   
+            color: orange;
+        }
+        h2{
+            display: inline-block;
+            position:absolute;
+            top: 12%;
+            left: 45%;
+            font-size: 30px;
+            margin:0px;
+            color: white;
+        }
+        h3{
+            display: inline-block;
+            position:absolute;
+            top: 18%;
+            left: 45%;
+            font-size: 30px;
+            margin:0px;
+            color: white;
+        }
+        h4{
+            display: inline-block;
+            position:absolute;
+            top: 24%;
+            left: 45%;
+            font-size: 30px;
+            margin:0px;
+            color: green;
+        }
+        p{
+            display: inline-block;
+            position:absolute;
+            top: 30%;
+            left: 45%;
+            font-size: 30px;
+            margin:0px;
+            font-weight: bold;
+            color: green;
+        }
+        pre{
+            display: inline-block;
+            position:absolute;
+            top: 30.5%;
+            left: 42%;
+            font-size: 25px;
+            margin:0px;
+            font-weight: bold;
+            color: green;
+        }
+        h5{
+            display: inline-block;
+            position:absolute;
+            top: 48%;
+            left: 45%;
+            font-size: 30px;
+            margin:0px;
+            color: blue;
+        }
+        button{
+            position: relative;
+            top:50%;
+            left: 54%;
+            height: 20px;
+            width: 80px;
+            
+        }
+        a{
+            position: absolute;
+            display: inline-block;
+            top:50%;
+            left: 54%;
+            background-color: rgb(169, 160, 160);
+            color:red ;
+            height: 40px;
+            width: 100px;
+            text-align: center;
+            padding-top: 15px;
+            border-radius: 25px;
+            font-size: 22px;
+        }
+        .a1{
+            left: 55%;
+        }
+        .a2{
+            left: 65%;
+        }
+        .a3{
+            left: 75%;
+            width: 120px;
+        }
+        .a4{
+            left: 87%;
+        }
+        .a5{
+            top: 60%;
+            left: 55%;
+        }
+        .a6{
+            top: 60%;
+            left: 65%;
+        }
+        .a7{
+            top: 60%;
+            left:76%;
+        }
+        .a8{
+            position: absolute;
+            display: inline-block;
+            top:75%;
+            left: 55%;
+            background-color: black;
+            color:red ;
+            height: 60px;
+            width: 280px;
+            text-align: center;
+            padding-top: 15px;
+            border-radius: 30px;
+            font-size: 40px;
+        }
+        .a9{
+            position: absolute;
+            display: inline-block;
+            top:75%;
+            left: 80%;
+            background-color: white;
+            color:red ;
+            height: 60px;
+            width: 200px;
+            text-align: center;
+            padding-top: 15px;
+            border-radius: 30px;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="img"><img src="Thanush photo.jpg" alt="my pic" style="height: 30%; width: 40%;display: inline-block;"></div>
+
+        <h1>Thanush Veerappan</h1>
+        <h2>Global Institute of Engineering And Technology</h2>
+        <h3>Junior Full-Stack Engineer</h3>
+        <h4>BE[ECE]-2022 batch Passedout</h4>
+        <p>Address:</p>
+        <pre>
+            No:179 Chennai Salai Arumbaruthi,
+            Katpadi, Vellore,
+            Pincode: 632106,
+            Phone No:7397187850.
+        </pre>
+        <h5>Skills:</h5>
+        <a class="a1">Html</a>
+        <a class="a2">CSS</a>
+        <a class="a3">JavaScript</a>
+        <a class="a4">SQL</a>
+        <a class="a5">Python</a>
+        <a class="a6">Java</a>
+        <a class="a7">Github</a>
+        <a class="a8">Book a lector</a>
+        <a class="a9">Learn More</a>
+    </div>
+</body>
+</html>

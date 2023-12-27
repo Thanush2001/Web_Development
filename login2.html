@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            margin-top: 2%;
+            background-image: linear-gradient(to top left, rgb(100, 182, 222),rgb(237, 237, 98),rgb(239, 164, 177));
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        h1{
+            font-size: 80px;
+            color: red;
+        }
+        input{
+            height: 60px;
+            width: 60%;
+            background-color: transparent;
+            border-radius: 60px;
+            padding-left: 20px;
+            font-size: 25px;
+            display: inline-block;
+            border: 3px solid white;
+        }
+        ::placeholder{
+            padding-left: 25px;
+            font-size: 30px;
+            color: white;
+        }
+        button{
+            height: 60px;
+            width: 66.5%;
+            border-radius: 60px;
+            background-color: transparent;
+            font-size: 25px;
+            border:3px solid white;
+            color: white;
+        }
+        button:active{
+            transform: scale(0.80);
+        }
+        .check{
+            height: 60px;
+            width: 60px;
+            background-color: transparent;
+            padding-right: 0px;
+        }
+        .cba input{
+            height: 25px;
+            width: 25px;
+            margin-top: 30px;
+        }
+        .text1 input{
+            border-left: none;
+            border-bottom: none;
+            padding-left: 40px;
+            border-top-left-radius: 2px;
+        }
+        .pwd1 input{
+            border-right: none;
+            border-bottom: none;
+            padding-left: 40px;
+            border-top-right-radius: 2px;
+        }
+        .sub button{
+            border-left: none;
+            border-top-left-radius:2px;
+            border-bottom-left-radius: 2px;
+        }
+        .cba label{
+            display: inline-block;
+            position: relative;
+            font-size: 30px;
+            color: white;
+        }
+        .abc{
+            width: 35%;
+            height: 15px;
+        }
+        .zyx{
+            margin-top: 40px;
+            width: 60%;
+        }
+        center{
+            background-image: linear-gradient(to top right, rgb(113, 232, 50),rgb(236, 106, 106),rgb(122, 122, 233));
+            width: 35%;
+            margin-left: 25%;
+            height: 30%;
+            border: 15px solid red;
+            border-top-right-radius: 190px;
+            border-bottom-left-radius: 190px;
+            animation: color 15s 3s infinite;
+        }   
+        @keyframes color {
+        0%{ border: 15px solid orange;}
+        25%{border-color:pink;}
+        50%{border: 5px solid greenyellow;}
+        100%{border-color:rgb(135, 18, 245)}
+    }
+    
+    img{
+        padding: 40px;
+    }
+    </style>
+</head>
+<body>
+    <center>
+        <form>
+    <h1>Login</h1>
+
+    <div class="text1">
+        <input type="text" placeholder="name@mail.com" required>
+    </div>
+
+    <div class="pwd1">
+        <input type="password" id="pwd1" placeholder="********" required>
+    </div>
+
+    <div class="sub">
+        <button type="submit" >Submit</button>
+    </div>
+    <br>
+
+    <div class="cba">
+        <input type="checkbox" id="check" onclick="showpassword()">
+        <label>Remember</label><br>
+    </div>
+    <br>
+    <br>
+    <div class="abc">
+        <button type="reset">forget</button>
+    </div>
+    <br><br><br><br>
+    
+    <div class="zyx">
+        <button>Join us !</button>
+    </div>
+    <br>
+    <img src="Share.jpg" style="height: 35px; width: 35px;">
+    <img src="whatsapp.jpg" style="height: 35px; width: 35px;">
+    <img src="insta.jpg" style="height: 35px; width: 35px;">
+</form>
+</center>
+<script>
+    function showpassword()
+        {
+            if(check.checked)
+            pwd1.type="text";
+            else
+            pwd1.type="password";
+        }
+</script>
+</body>
+</html>

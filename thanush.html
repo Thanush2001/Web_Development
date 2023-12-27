@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Table</title>
+        <style>
+            p{
+                position: relative;
+                margin-top: 10%;
+                margin-left: 3%;
+                color:rgb(228, 168, 16);
+                font-size: 40px;
+                text-shadow: 4px 4px 5px red;
+            }
+            h1{
+                position: relative;
+                color: rgb(239, 173, 8);
+                font-size: 70px;
+                margin-left: 3%;
+                margin-top: -3%;
+                text-shadow: 7px 7px 5px red;
+            }
+            #aaa{
+                color: aliceblue;
+                margin-top: 4%;
+                font-size: 30px;
+                margin-left: 3%;
+            }
+            table{
+                position: relative;
+                margin-left: 40%;
+                margin-top: -24%;
+                height: 65%;
+                width: 50%;
+                color: aliceblue;
+                border-color: white;
+                border: solid 8px;
+                font-size: 30px;
+            }
+            th{
+                border-color: white;
+                border:solid ;
+            }
+            div img{
+                border-radius:80%;
+                height: 8%;
+                width: 4%;
+                margin-left: 3%; 
+            }
+            label{
+                color: aliceblue;
+                position: absolute;
+                top: 83%;
+                left: 145px;
+                font-size: 25px;
+            }
+            #abc{
+                position: absolute;
+                top: 87%;
+                right:71%;
+                width: 20%;
+            }
+            #abc img{
+                height: 35px;
+                width: 35px;
+            }
+            body{
+                animation: ani 5s 1s infinite;
+            }
+            @keyframes ani 
+            {
+                from {border-color: red;}
+                to{border-color:yellow;}
+            }
+        </style>
+    </head>
+    <body style="background-color: blueviolet; border: 15px solid red;">
+        <p>Modelo</p>
+        <h1>Portfolio<br>Canvas</h1>
+        <p id="aaa">Feito e pensado por: <br></b><u>Richard Jesus<br>Igor Magrini</u></p>
+        
+        <table>
+            <tr>
+                <th colspan="3">KEYS</th>
+            </tr>
+            <tr>
+                <th rowspan="3">[HTML]<br>HyperText Markup Language</th>
+                <th rowspan="2">[CSS]<br>Cascading Style Sheets</th>
+                <th>[SQL]<br>Structured Query Language</th>
+            </tr>
+            <tr>
+                <th>[JAVA]<br>The name Java is a Computer-based programming language</th>
+            </tr>
+            <tr>
+                <th rowspan="3">[JS]<br>mainly used for front-end</th>
+                <th rowspan="2">[PHP] <br> Hypertext Preprocessor</th>
+            </tr>
+            <tr>
+                <th rowspan="2">[PYTHON]<br>Python is popular programming language</th>
+            </tr>
+        </table>
+        <div>
+            <img src="Thanush photo.jpg">
+            <label>vthanush666@gmail.com</label>
+            <br>
+            <div id="abc">
+                <img src="Logo_Twitter.png">
+                <img src="insta.jpg">
+                <img src="whatsapp.jpg">
+                <img src="google.jpg">
+                <img src="search.jpg">
+            </div>
+        </div>
+    </body>
+</html>

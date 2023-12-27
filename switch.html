@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=10;
+        let b=2;
+        console.log("A value="+a+"---B value="+b);
+        console.log("1.Add\n2.Sub\n3.Mul\n4.Div\n5.Rem");
+        let choice=parseInt(prompt("Enter the choice value: "));
+        switch(choice)
+        {
+            case 1:
+                console.log("Result=",a+b);
+                break;
+            case  2:
+                console.log("Result=",a-b);
+                break;
+            case 3:
+                console.log("Result=",a*b);
+                break;
+            case 4:
+                console.log("Result=",a/b);
+                break;
+            case 5:
+                console.log("Result=",a%b);
+                break;
+            default:
+                console.log("Wrong choice");
+                break;
+        }
+    </script>
+</body>
+</html>

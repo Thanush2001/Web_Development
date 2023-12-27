@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image:linear-gradient(to top right, red, green);
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        h1{
+            background: linear-gradient( rgb(195, 144, 144), rgb(151, 218, 18));
+            background-size: 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        button{
+            background-color: black;
+            margin: 30px;
+        }
+        .abc{
+            -webkit-box-reflect: below
+            1px linear-gradient(transparent,#0005);
+            box-shadow: 0 0 5px #03e9f4,0 0 15px #03e9f4,
+                        0 0 25px #03e9f4,0 0 150px #03e9f4;
+        }
+    </style>
+</head>
+<body>
+    <button class="abc"><h1>Random Password</h1></button>
+    <script>
+    function generateRandomCapture() {
+    const symbols = '!@#$%^&*()-_=+';
+    const numbers = '0123456789';
+    const alphabets = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    function getRandomCharacter(characters) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        return characters.charAt(randomIndex);
+    }
+    let randomCapture = '';
+    for (let i = 0; i < 2; i++) {
+        randomCapture += getRandomCharacter(symbols);
+    }
+    for (let i = 0; i < 2; i++) {
+        randomCapture += getRandomCharacter(numbers);
+    }
+    for (let i = 0; i < 4; i++) {
+        randomCapture += getRandomCharacter(alphabets);
+    }
+    randomCapture = randomCapture.split('').sort(() => Math.random() - 0.5).join('');
+
+    return randomCapture;
+}
+const randomCapture = generateRandomCapture();
+console.log("Random Capture:", randomCapture);
+
+    </script>
+</body>
+</html>

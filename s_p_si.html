@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissors Game</title>
+    <style>
+        h1{
+            font-size: 40px;
+            color: red;
+            text-shadow: 5px 5px 5px greenyellow;
+        }
+        fieldset{
+            height: 32%;
+            width: 30%;
+            margin-top: 20%;
+            border:10px solid red;
+            position: absolute;
+            right: 33%;
+            padding-bottom: 30px;
+            box-shadow: 15px 15px 5px greenyellow;
+         }
+         body{
+            background-size: 100%;
+            background-image: url("hand_cricket.jpg");
+            background-repeat: no-repeat;
+         }
+         #num button{
+            height: 55px;
+            width: 135px;
+            font-size: 30px;
+            font-weight: bold;
+         }
+         #num[type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+        }
+        button{
+            width: 85%;
+            height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+         }
+         button:active{
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+            border: 5px solid skyblue;
+         }
+        [type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 35px;
+            background-color: red;
+        }
+        p{
+            color: white;
+            font-size: 25px;
+            margin: 0%;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <center>
+                <h1>Stone Paper Scissors Game</h1>
+                <div id="num">
+                    <button onclick="change(0)">Stone</button>
+                    <button onclick="change(1)">Paper</button>
+                    <button onclick="change(2)">Scissor</button>
+                </div><br>
+                <button onclick="submitChoice()">Submit</button><br><br>
+                <p id="selected_number">Selected Number : 0</p><br><br>
+                <p id="total">Total : 0</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <p id="count">Count : 0</p>
+            </center>
+        </fieldset>
+    </div>
+    <script>
+        var user_choice = 0;
+        var total = 0; 
+        var count=0;
+
+        function change(number) 
+        {
+            user_Choice = number;
+            document.getElementById('selected_number').innerHTML = "Selected Number : " + number;
+        }
+        function submitChoice() 
+        {
+            var systemNumber = Math.floor(Math.random() * 3);
+            
+            if(user_Choice == systemNumber) 
+            {
+                count=count+1;
+                total=total+1;
+                alert("System number : "+systemNumber+". Both are equal!")
+            } 
+            else 
+            {   
+                count=count+1;
+                alert("System Number: "+systemNumber);
+            }
+            document.getElementById('total').innerHTML="Total : " +total;
+            document.getElementById('count').innerHTML="count : " +count;
+            resetGame();
+        }
+
+        function resetGame() 
+        {
+            document.getElementById('selected_number').innerHTML ="Selected Number : 0";
+        }
+    </script>
+</body>
+</html>

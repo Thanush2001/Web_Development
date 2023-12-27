@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to top left, rgb(24, 2, 86)50%,rgb(1, 42, 30) 50%);
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            display: inline-block;
+            margin-top: 200px;
+            font-size: 60px;
+        }
+        input{
+            display: inline-block;
+            height: 60px;
+            width: 500px;
+            border-radius: 350px;
+            font-size: 28px;
+            padding-left: 30px;
+            background-color: transparent;
+            border-color: transparent;
+            border-color: white;
+            color: white;
+        }
+        ::placeholder{
+            padding-left: 45px;
+            font-size: 25px;
+        }
+        button{
+            height: 65px;
+            width: 100%;
+            font-size: 25px;
+            font-weight: 600;
+            background-color: white;
+            color: black;
+            margin-top: 55px;
+            border-radius: 300px;
+        }
+        #check{
+            height: 25px;
+            width: 25px;
+            margin-right: 80px;
+            padding: 0%;
+            margin: 0px;
+            margin-top: 25px;
+        }
+        label{
+            padding-right:300px;
+            font-size: 25px;
+        }
+    </style>
+    <title>Main page</title>
+</head>
+<body>
+    <form>
+    <center>
+        <h1>USER LOGIN</h1><br>
+        <input type="text" placeholder="Username" id="user"><br><br><br>
+        <input type="password" placeholder="Password" id="pass" ><br><br>
+        <div class="cba">
+            <input type="checkbox" id="check">&nbsp;&nbsp;
+            <label>Show Password</label>
+        </div>
+        <button onclick="checkLogin()">LOGIN</button>
+    </center>
+</form>
+<script>
+    check.onclick=showpassword;
+    function showpassword()
+    {
+        if(check.checked)
+            pass.type="text";
+        else
+            pass.type="password";
+    }
+    function checkLogin() 
+    {
+        let enter_Username=document.getElementById("user").value;
+        let enter_Password=document.getElementById("pass").value;
+        if (enter_Username=="Thanush" && enter_Password=="appu123"|| enter_Username=="Amma" && enter_Password=="amma123") 
+        {
+            alert("Login successful Welcome, " + enter_Username);
+            window.location.href="redirect.html";
+        } 
+        else 
+        {
+            alert("Incorrect username or password.Please try again.");
+        }
+    }
+</script>
+</body>
+</html>

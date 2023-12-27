@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        fieldset{
+            height: 330px;
+            width: 380px;
+            padding: 30px;
+            border-top-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+            border-color:orange;
+            transition: padding 2s;
+            transition-delay: 1s;
+            animation-name: abc,xyz;
+            margin-right: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes abc{
+            0%{border-color: red;}
+            25%{border-color: green;}
+            50%{border-color: blue;}
+            75%{border-color: gray;}
+            100%{border-color: red;}
+        }
+        fieldset:hover{
+            padding: 50px; 
+            box-shadow: 25px 25px 15px red;
+        }
+        body{
+            background-image: url(light\ lamp.jpg);
+            background-size:100%;
+            margin-top: 150px;
+        }
+        button{
+            height: 45px;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 600;
+            background-color: rgb(199, 34, 61);
+            color: white;
+            box-shadow:15px 15px 5px rgba(255, 0, 0, 0.447);
+        }
+        .abc input{
+            display: inline-block;
+            border-top:hidden;
+            border-left: hidden;
+            border-right: hidden;
+            border-bottom: 1px solid #000; /* Keep only the bottom border */
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            height: 32px;
+            width: 90%;
+            background-color: transparent;
+            border-color: blueviolet;
+            font-size: 18px;
+            padding-left: 18px;
+
+        }
+        .zyx input{
+            display: inline-block;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border: none;
+            border-bottom: 1px solid blueviolet; /* Keep only the bottom border */
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            height: 32px;
+            width: 90%;
+            background-color: transparent;
+            font-size: 18px;
+            padding-left: 18px;
+        }
+        .abc img{
+            display: inline-block;
+            height: 23px;
+            width: 23px;
+            padding-right: 7px;
+        }
+        .zyx img{
+            display: inline-block;
+            height: 23px;
+            width: 23px;
+            padding-right: 7px;
+        } 
+        .cba{
+            display: inline-block;
+            width: 100%;
+        }
+        .cba input{
+            height: 15px;
+            width: 15px;
+        }
+        .cba label{
+            display: inline-block;
+            position: relative;
+            top: 0;
+            margin: 0px;
+            margin-right: 200px;
+            transition: top 0.3s;
+            font-size: 20px;
+        }
+        h2{
+            padding-top: 50px;
+            font-size: 50px;
+        }
+        ::placeholder{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        h1{
+            background-color: blueviolet;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <fieldset>
+            <h1 style="color: white;">CUSTOMER LOGIN</h1>
+        <form>
+            <div class="abc">
+                <img src="man.jpg"><input TYPE="TEXT" placeholder="Username" required>
+            </div>
+            <div class="zyx">
+                <img src="lock.jpg"><input TYPE="password" placeholder="Password" id="pass" required>
+            </div><br>
+            <div class="cba">
+            <input type="checkbox" id="check">
+            <label>Show Password</label>
+            </div>
+                <br><br>
+                <button>LOGIN</button>
+                <br><br>
+                <label style="font-size: 20px;">Forget Password</label>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" style="font-size: 20px;">Click Here</a>
+        </form>
+    </fieldset>
+</center>    
+<script>
+    check.onclick=showpassword;
+    function showpassword()
+    {
+        window.location.href="js_basic.html";
+        if(check.checked)
+            pass.type="text";
+        else
+            pass.type="password";
+    }
+
+</script>
+</body>
+</html>

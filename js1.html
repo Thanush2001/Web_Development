@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <style>
+        form{
+            padding-right: 100px;
+        }
+        input{
+            border: 3px solid rgb(9, 163, 224);
+            height: 40px;
+            width: 30%;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding-left: 35px;
+            background-color: black;
+        }
+        ::placeholder{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        button{
+            height: 55px;
+            width: 32.5%;
+            font-size: 25px;
+            font-weight: 600;
+            background-color: rgb(9, 163, 224);
+            color: white;
+            margin-bottom:10px ;
+        }
+        #check{
+            height: 20px;
+            width: 20px;
+            margin-right: 8px;
+        }
+        label{
+            padding-right:80px;
+            font-size: 25px;
+        }
+        body{
+            margin-top: 5%;
+            background-color: aqua;
+            border: 5px solid red;
+            border-width: 5px;
+            animation: ani 3s  2s infinite ;
+            width: 60%;
+            margin-left: 20%;
+            box-shadow: 20px 15px 15px blue;
+            
+        }
+        @keyframes ani 
+        {
+        0%{border-left-color: orange;}
+        25%{border-top-color:white;}
+        50%{border-right-color:green;}
+        75%{border-bottom-color:blue;}
+        100%{border-bottom-color:red;}
+        }
+        #but[type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 35px;
+        }
+        #message{
+            text-align: left;
+            padding-left: 35%;
+        }
+        p{
+            font-size: 20px;
+        }
+        h3{font-size: 25px;}
+        h1{font-size: 55px;padding-left: 55px;}
+    </style>
+</head>
+<body>Trending chittoor news
+    
+    <form onsubmit="checking()">
+    <center>
+    <h1>Password Validation</h1>
+    <input type="password" placeholder="Password" id="pass" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br><br>
+    <div class="cba">
+        <input type="checkbox" id="check" onclick="showpassword()">&nbsp;
+        <label>Show Password</label>
+    </div><br><br>
+    <button id="but" type="submit">Check</button>
+
+    <div id="message">
+        <h3>Hints:</h3>
+        <p> <b>Characters + Special_Characters + Digits = "Strong Password"</b></p>
+        <p> <b>Characters + Digits = "Medium Password"</b></p>
+        <p> <b>Characters = "Weak Password"</b></p>
+      </div>
+</center>
+<script>
+    function checking()
+    {
+        var element=document.getElementById("pass").value;
+        var lengthOfInput=element.length;
+        var number=false;
+        var Special_Characters=false;
+        for(let i=0;i<lengthOfInput;i++)
+        {
+            let character=element.charAt(i);
+            if(character>='0'&&character<='9')
+            {
+                number=true;
+            }
+            else if(character=='@'||character=='$'||character=='%'||character=='*'||character=='&'||character=='#')
+            {
+                Special_Characters=true;
+            }
+        }
+        if(number && Special_Characters)
+        alert('Strong password');
+        else if(number==false && Special_Characters == false)
+        alert('weak password');
+        else
+        alert('medium password');
+
+    }
+    function showpassword()
+    {
+        if(check.checked)
+            pass.type="text";
+        else
+            pass.type="password";
+    }
+</script>
+</form>
+</body>
+</html>

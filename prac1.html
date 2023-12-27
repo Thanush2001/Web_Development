@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practices</title>
+    <style>
+        fieldset{
+            height:10%;
+            width: 30%;
+            margin-top: 100px;
+        }
+        form{
+            margin-top: 10px;
+        }
+        p
+        {
+            display: none;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <fieldset>
+    <form onsubmit="pass()">
+        <label>Username</label>
+        <input type="text" id="i1" onkeyup="checkLogin()" placeholder="Enter user name" required>
+        <p id="p1">Invalid Username</p> 
+        <br><br>
+
+        <label>Mobile Number</label>
+        <input type="number" id="i2" onkeyup="num()"  placeholder="Enter Mobile number" required>
+        <p id="p2">Invalid Phone number</p> 
+        <br><br>
+
+        <label>Password</label>
+        <input type="password" id="i3" onkeyup="pass()"  placeholder="Enter your Password" required><br>
+        <p id="p3">Invalid Password</p> 
+
+        <input type="checkbox" id="check"><label>Show Password</label>
+        <br><br>
+        <button id="button">Submit</button>
+    </form>
+</fieldset>
+</center>
+<script>
+    let dt=new Date();
+    document.write(dt);
+    document.write("<br>")
+    document.write(dt.getDate());
+    check.onclick=showpassword;
+
+
+    function showpassword()
+    {
+        if(check.checked)
+            i3.type="text";
+        else
+            i3.type="password";
+    }
+    
+    function checkLogin()
+    {
+        var myInput = document.getElementById("i1").value;
+        var lengthOfInput=myInput.length;
+        for(let i=0;i<lengthOfInput;i++)
+        {
+            let character=myInput.charAt(i);
+            if(character=='@'||character=='$'||character=='%'||character=='*'||character=='&'||character=='#')
+            {
+                document.getElementById("p1").style.display="block";
+                return;
+            }
+        }
+        document.getElementById("p1").style.display="none";
+    }
+
+    function pass() 
+    {
+    var element = document.getElementById("i3").value;
+    var lengthOfInput =element.length;
+    if(lengthOfInput<8)
+    {
+        document.getElementById("p3").style.display="block";
+        document.getElementById("button").disabled=true;
+    }
+    else{
+        document.getElementById("p3").style.display="none";
+        document.getElementById("button").disabled=false;   
+    }
+    }
+</script>
+</body>
+</html>

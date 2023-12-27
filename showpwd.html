@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            body
+            {
+                background-color: skyblue;
+                color:white;
+            }
+            div
+            {
+                position: relative;
+                left:35%;
+                top:30%;
+                background-color: white;
+                height: 250px;
+                width:400px;
+            }
+            input 
+            {
+                width:90%;
+                margin: 10px;
+                padding:10px;
+                border-width: 0px;
+                border-bottom-width: 2px;
+            }
+            button
+            {
+                position: absolute;
+                left:-20px;
+                padding:10px;
+                width: 110%;
+                background-color:dodgerblue;
+            }
+            h1
+            {
+                text-align: center;
+                position: relative;
+                top:30%;
+                left:35%;
+                background-color:dodgerblue ;
+                width:24%;
+                padding:10px;
+                margin-bottom:0px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CUSTOMER LOGIN</h1>
+        <div>
+            <input type="text" placeholder="Username">
+            <input type="password" id="pwd" placeholder="password">
+            <input type="checkbox" style="width: auto;" onclick="show()"><b style="color:black">showpassword</b><br>
+            <button onclick="nextpage()">Login</button>
+        </div>
+        <script>
+            function show()
+            {
+                var pwd=document.getElementById("pwd");
+                if(pwd.type=='password')
+                {
+                    pwd.type='text';
+                }
+                else
+                {
+                    pwd.type='password';
+                }
+            }
+            check.onclick=nextpage;
+            function nextpage()
+            {
+            window.location.href="js_basic.html";
+            }
+        </script>
+    </body>
+</html>

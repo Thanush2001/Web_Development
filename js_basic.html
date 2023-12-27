@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Basic</title>
+</head>
+
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+
+    <button onclick="addition()">Add</button>
+    <button onclick="subtract()">Sub</button>
+    <button onclick="Multiply()">Mul</button>
+    <button onclick="Division()">Div</button>
+    <button onclick="Modulo()">Mod</button>
+    <button onclick="Power()">Pow</button>
+
+
+    <script>
+        function addition()
+        { 
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)+parseInt(num2.value);
+            document.write(num3);
+        }
+        function subtract()
+        {
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)-parseInt(num2.value);
+            document.write(num3);
+        }
+        function Multiply()
+        {
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)*parseInt(num2.value);
+            document.write(num3);
+        }
+        function Division()
+        {
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)/parseInt(num2.value);
+            document.write(num3);
+        }
+        function Modulo()
+        {
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)%parseInt(num2.value);
+            document.write(num3);
+        }
+        function Power()
+        {
+            let num1=document.getElementById("num1");
+            let num2=document.getElementById("num2");
+            let num3=parseInt(num1.value)**parseInt(num2.value);
+            document.write(num3);
+        }
+    </script>
+</body>
+</html>

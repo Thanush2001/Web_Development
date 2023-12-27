@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image and Content Layout</title>
+<style>
+  .container {
+    border: 2px solid #ccc;
+    display: flex;
+  }
+  .left-side {
+    flex: 1;
+    padding: 20px;
+    border-right: 2px solid #ccc;
+  }
+  .right-side {
+    flex: 2;
+    padding: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left-side">
+    <img src="your_image_url.jpg" alt="Left Image">
+  </div>
+  <div class="right-side">
+    <h1>Content Heading</h1>
+    <p>Content goes here...</p>
+  </div>
+</div>
+
+</body>
+</html>

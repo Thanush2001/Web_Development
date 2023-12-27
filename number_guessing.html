@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            background: linear-gradient(to top right, rgb(2, 86, 47)50%,rgb(52, 8, 229) 50%);
+            justify-content:center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            border: 65px solid black;
+        }
+        fieldset{
+            height: 35%;
+            width: 80%;
+            border-radius: 50%;
+            background-color: gray;
+            margin-top: 10%;
+            
+            border:10px solid gray;
+            box-shadow: 5px 25px 5px greenyellow;
+            animation: ani 4s 1s infinite;
+        }
+        @keyframes ani 
+        {
+        0%{border-left-color: orange;}
+        25%{border-top-color:white;}
+        50%{border-right-color:green;}
+        75%{border-bottom-color:blue;}
+        100%{border-bottom-color:red;}
+        }
+        input{
+            border: 3px solid rgb(9, 163, 224);
+            height: 40px;
+            width: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding-left: 15px;
+            background-color: black;
+        }
+        label{
+            font-size: 30px;
+            color: red;
+            text-shadow: 3px 3px 5px greenyellow;
+        }
+        button{
+            height: 55px;
+            width: 30%;
+            font-size: 25px;
+            font-weight: 600;
+            margin-top:30px ;
+            background-color: rgb(9, 163, 224);
+            color: white;
+        }
+        [type="submit"]:active 
+        {
+            transform: scale(0.90);
+            border-radius: 30px;
+            background-color: red;
+        }
+        h1{
+            color: red;
+            text-shadow: 3px 3px 5px greenyellow;
+            font-size: 50px;
+        }
+       
+    </style>
+</head>
+<body>
+    <form onsubmit="add()">
+    <center >
+    <fieldset>
+        <h1>Guessing number Game</h1>
+        <div id="num">
+            <input type="password" id="input"  placeholder="Enter the Guess number" pattern="\d+">&nbsp;
+            <label>Choose one number From 1-100</label><br><br>
+                <input type="checkbox" id="check" style="height: 20px;width: 20px; margin-right: 10px;">&nbsp;
+                <label>Show Number</label>
+            <br><br>
+            <label>But one condition, Total you have 5 chances only</label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </fieldset>
+</center>
+</form>
+<script>
+    check.onclick=showpassword;
+    function showpassword()
+    {
+        if(check.checked)
+            input.type="text";
+        else
+            input.type="password";
+    }
+    function add()
+    {
+        var guess_num=document.getElementById("input").value;
+        for(let i=1; i<=5;i++)
+        {
+            var userInput = prompt("Enter something chance number: "+ i);
+            if(userInput==guess_num)
+            {
+                alert("YOU WIN");
+                break;
+            }
+            else;
+            {
+                alert("YOU LOSE CHANCE: "+i);
+            }  
+        if(i==5)
+        {
+            alert("You lose 5 chance Game over");     
+        }  
+        }
+        
+    }
+</script>
+</body>
+</html>
