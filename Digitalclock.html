@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: black;
+            border: 10px solid red;
+            background-size: 100%;
+        }
+        .clock {
+            border-width: 10px;
+            border-style: solid; 
+            height: 350px;
+            width: 350px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            display: inline-block;
+            margin-top: 0%; 
+        }
+        p{
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 25%; 
+            color: red;
+            background: linear-gradient(orange,blue);
+            -webkit-background-clip:text ;
+            -webkit-text-fill-color: transparent;
+        }
+        h2{
+            margin-top: 5%; 
+            color: red;
+            font-size: 150px;
+            background: linear-gradient(orange,blue);
+            -webkit-background-clip:text ;
+            -webkit-text-fill-color: transparent;
+        }
+        h1{
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 5%; 
+            color: red;
+            background: linear-gradient(orange,blue);
+            -webkit-background-clip:text ;
+            -webkit-text-fill-color: transparent;
+        }
+        @media only screen and (max-width :400px) {
+            body{
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Digital Clock</h2>
+    <div id="hour2" class="clock">
+        <h1 id="time2"></h1>
+        <p>HOURS</p>
+    </div>
+    <div id="hour1" class="clock">
+        <h1 id="time1"></h1>
+        <p>MINUTES</p>
+    </div>
+    <div id="hour" class="clock">
+        <h1 id="time"></h1>
+        <p>SECONDS</p>
+    </div> 
+    <br><br><br><br><br><br><br><br>
+</center>
+<script>
+    setInterval(updateClock, 1000);
+
+    function updateClock() {
+        var dt = new Date();
+
+        var secondsElement = document.getElementById("time");
+        var seconds = dt.getSeconds();
+        secondsElement.innerHTML = seconds;
+        updateClockPart("hour", seconds);
+
+        var minutesElement = document.getElementById("time1");
+        var minutes = dt.getMinutes();
+        minutesElement.innerHTML = minutes;
+        updateClockPart("hour1", minutes);
+
+        var hoursElement = document.getElementById("time2");
+        var hours = dt.getHours() % 12; 
+        hours = hours === 0 ? 12 : hours; 
+        hoursElement.innerHTML = hours;
+        h("hour2", hours);
+    }
+
+    function updateClockPart(clockId, value) {
+        var parent = document.getElementById(clockId);
+        var percent = (value / 60) * 100;
+        var color = `linear-gradient(to top right, green ${percent}%, red ${percent}%)`;
+        parent.style.backgroundImage = color;
+    }
+    function h(clockId, value) {
+        var parent = document.getElementById(clockId);
+        var percent = (value / 12) * 100;
+        var color = `linear-gradient(to top right, green ${percent}%, red ${percent}%)`;
+        parent.style.backgroundImage = color;
+    }
+</script>
+</body>
+</html>
