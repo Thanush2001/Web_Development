@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(9, 8, 9);
+
+            background-color: black;
+            border: 50px solid red;
+            background-size: 85%;
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Use a standard font */
+        
+        }
+
+        .circle-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            font-size: 30px;
+        }
+
+        .circle {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .circle svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            transform: rotate(270deg);
+        }
+
+        .circle svg circle {
+            width: 100%;
+            height: 100%;
+            fill: transparent;
+            stroke: #191919;
+            stroke-width: 4;
+            transform: translate(5px, 5px);
+        }
+
+        .circle svg circle:nth-child(2) {
+            stroke: var(--clr);
+            stroke-dasharray: 440;
+        }
+
+        .dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dots::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            width: 15px;
+            height: 15px;
+            background: var(--clr);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+        }
+
+        .circle div {
+            position: absolute;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1em;
+            color: var(--clr);
+        }
+
+        .circle span {
+            position: absolute;
+            transform: translateX(-50%) translateY(-10px);
+            font-size: 12px;
+            font-weight: 900;
+            margin-top: 44px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        h1{
+            margin-top: 5%; 
+            color: red;
+            font-size: 90px;
+            background: linear-gradient(orange,blue);
+            -webkit-background-clip:text ;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            padding-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <div id="time" class="circle-container">
+        <div class="circle" style="--clr:#ff2972;">
+            <div class="dots hr_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00<span>Hours</span></div>
+        </div>
+        <div class="circle" style="--clr:#fee800;">
+            <div class="dots min_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00<span>Minutes</span></div>
+        </div>
+        <div class="circle" style="--clr:#04fc43;">
+            <div class="dots sec_dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00<span>Seconds</span></div>
+        </div>
+        <div class="circle" style="--clr:#3498db;">
+            <div id="ampm">AM</div>
+        </div>
+    </div>
+    <script>
+        setInterval(() => {
+            let hours = document.getElementById('hours');
+            let minutes = document.getElementById('minutes');
+            let seconds = document.getElementById('seconds');
+            let ampm = document.getElementById('ampm');
+
+            let hh = document.getElementById('hh');
+            let mm = document.getElementById('mm');
+            let ss = document.getElementById('ss');
+
+            let hr_dot = document.querySelector('.hr_dot');
+            let min_dot = document.querySelector('.min_dot');
+            let sec_dot = document.querySelector('.sec_dot');
+
+            let h = new Date().getHours();
+            let m = new Date().getMinutes();
+            let s = new Date().getSeconds();
+
+            // Convert 24hrs clock to 12hrs clock
+            let am = h >= 12 ? "PM" : "AM";
+            h = (h % 12) || 12;
+
+            // Add zero before single-digit number
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            hours.innerHTML = h + "<span>Hours</span>";
+            minutes.innerHTML = m + "<span>Minutes</span>";
+            seconds.innerHTML = s + "<span>Seconds</span>";
+            ampm.innerHTML = am;
+            
+            let ampmElement = document.getElementById('ampm');
+            ampmElement.style.fontSize = '60px';
+            ampmElement.style.color = 'red';
+
+            hh.style.strokeDashoffset = 440 - (440 * h) / 12;
+            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+            ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+
+            hr_dot.style.transform = 'rotate(' + h * 30 + 'deg)';
+            min_dot.style.transform = 'rotate(' + m * 6 + 'deg)';
+            sec_dot.style.transform = 'rotate(' + s * 6 + 'deg)';
+        }, 1000);
+    </script>
+</body>
+</html>
