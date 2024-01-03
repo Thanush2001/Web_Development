@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: indianred;
+            font-weight: bold;
+            font-size: 30px;
+            position: relative;
+            bottom: 100px;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            margin-top: 20px;
+        }
+
+        #title {
+            font-size: 100px;
+            background-image: linear-gradient(to bottom, red, yellow);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            border: 3px solid #1ad655;
+        }
+        /* Use a media query to add a breakpoint at 800px: */
+        @media screen and (max-width: 800px) 
+        {
+            .left, .main, .right 
+            {
+                width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">TIC TAC TOK GAME</h1><br>
+    <div id="board"></div>
+
+    <script>
+        // Player X starts
+        let currentPlayer = 'X';
+
+        // Initial game state
+        let board = ['', '', '', '', '', '', '', '', ''];
+
+        // Reference to the board element
+        const boardElement = document.getElementById('board');
+
+        // Reference to the h1 element
+        const titleElement = document.getElementById('title');
+
+        // Initialize the game board
+        function initializeBoard() 
+        {
+            for (let i = 0; i < 9; i++) 
+            {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.index = i;
+                cell.addEventListener('click', handleCellClick);
+                boardElement.appendChild(cell);
+            }
+
+            // Call the function to display the title letters one by one
+            animateTitle();
+        }
+
+        // Display the title letters one by one
+        function animateTitle() 
+        {
+            const titleText = titleElement.textContent;
+            titleElement.textContent = ''; // Clear the original text
+
+            for (let i = 0; i < titleText.length; i++) 
+            {
+                setTimeout(() => {
+                    titleElement.innerHTML += titleText[i];
+                }, i * 500); // Adjust the delay (in milliseconds) as needed
+            }
+        }
+
+        // Handle cell click event
+        function handleCellClick(event) 
+        {
+            const index = event.target.dataset.index;
+
+            // Check if the cell is already occupied or if the game is over
+            if (board[index] === '' && !isGameOver()) 
+            {
+                // Update the board with the current player's symbol
+                board[index] = currentPlayer;
+
+                // Update the UI
+                renderBoard();
+
+                // Check for a winner or a tie
+                if (checkForWinner()) 
+                {
+                    alert(`Player ${currentPlayer} wins!`);
+                    resetGame();
+                } 
+                else if (isBoardFull()) 
+                {
+                    alert('It\'s a tie!');
+                    resetGame();
+                } else 
+                {
+                    // Switch to the next player
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        // Render the current state of the board
+        function renderBoard() 
+        {
+            const cells = document.querySelectorAll('.cell');
+            cells.forEach((cell, index) => {
+                cell.textContent = board[index];
+            });
+        }
+
+        // Check if there is a winner
+        function checkForWinner() 
+        {
+            const winningCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]              // Diagonals
+            ];
+
+            return winningCombinations.some(combination => {
+                const [a, b, c] = combination;
+                return board[a] !== '' && board[a] === board[b] && board[a] === board[c];
+            });
+        }
+
+        // Check if the board is full (tie)
+        function isBoardFull() 
+        {
+            return board.every(cell => cell !== '');
+        }
+
+        // Check if the game is over
+        function isGameOver() 
+        {
+            return checkForWinner() || isBoardFull();
+        }
+
+        // Reset the game
+        function resetGame() 
+        {
+            // Clear the board
+            board = ['', '', '', '', '', '', '', '', ''];
+
+            // Reset current player to 'X'
+            currentPlayer = 'X';
+
+            // Update the UI
+            renderBoard();
+        }
+
+        // Initialize the game
+        initializeBoard();
+    </script>
+</body>
+</html>
