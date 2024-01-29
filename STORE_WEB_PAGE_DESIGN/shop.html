@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Products</title>
+    <style>
+        body{
+            background-image: url("Image/maligai.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        @media only screen and (max-width:500px)
+        {
+            
+        }
+        fieldset {
+            width: 82.5%;
+            margin-top: 40px;
+            border: 10px solid red;
+            background-color: aquamarine;
+            color: blueviolet;
+            border-radius: 24px;
+            opacity: 0.9;
+        }
+        legend {
+            font-size: 50px;
+            margin-left: 38%;
+            background-color: rebeccapurple;
+            color: red;
+            border-radius: 20px;
+        }
+        input {
+            display: inline-block;
+            height: 40px;
+            width: 150px;
+            font-size: 20px;
+            padding-right: 10px;
+            padding-left: 30px;
+            font-weight: bold;
+        }
+        ::placeholder {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            font-size: 30px;
+            color: green;
+            font-weight: bold;
+        }
+        div {
+            display: inline;
+            padding-left: 30px;
+        }
+        button {
+            height: 40px;
+            width: 90px;
+            font-size: 20px;
+            outline: none;
+            color: red;
+            font-weight: bold;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        button:hover{
+            background-color: #3e8e41;
+        }
+        button:active{
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 4px solid black;
+            border-radius: 25px;
+        }
+        td {
+            border: 4px solid black;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 25px;
+        }
+        h1{
+            font-size: 50px;
+            background: linear-gradient(rgb(123, 82, 82) 20%,rgb(196, 223, 89));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #FN {
+            color: rgb(20, 3, 252);
+        }
+        #Title{
+            color: rgb(240, 5, 134);
+        }
+        #welcome-message{
+            font-size: 40px;
+        }
+        #bu{
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <center>
+            <fieldset>
+                <legend>Products Details</legend>
+                <div id="welcome-message"></div>
+                <h1>APPU_BOBBY MALIGAI STORES</h1>
+                <div id="pd">
+                    <input type="text" placeholder="Product Name" id="pn" required oninput="capitalizeFirstLetter()">
+                    <label>ITEMS</label>
+                </div>
+                <div id="Rate">
+                    <input type="number" placeholder="Price" required id="p">
+                    <label>PRICE</label>
+                </div>
+                <div id="qty">
+                    <input type="number" placeholder="Quantity" required id="q">
+                    <label>Qty</label>
+                </div>
+                <div id="add" onclick="add()">
+                    <button>Add</button>
+                </div>
+                <div id="edit" onclick="edit()">
+                    <button>Edit</button>
+                </div>
+                <div id="Allclear" onclick="Allclear()">
+                    <button>AllClear</button>
+                </div>
+                <br>
+                <table id="tbl">
+                    <thead>
+                        <tr id="Title">
+                            <td>S.NO</td>
+                            <td>Product Name</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tb1"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">Overall Total:</td>
+                            <td id="Overall_Total">0.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">SGST(14%) :</td>
+                            <td id="SGST">0.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">CGST(14%) :</td>
+                            <td id="CGST">0.00</td>
+                        </tr>
+                        <tr id="FN">
+                            <td colspan="4" style="text-align: right;">Final Amount :</td>
+                            <td id="FA">0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br>
+                <button onclick="calculateAndNavigate()" id="bu">Proceed to Checkout</button>
+                <br>
+                <br>
+            </fieldset>
+        </center>
+    </form>
+    <script>
+        var storedUsername = sessionStorage.getItem("username");
+        var welcomeMessageElement = document.getElementById("welcome-message");
+        if (storedUsername) 
+        {
+            welcomeMessageElement.innerHTML = "Welcome, " + storedUsername + "!";
+        } 
+        else 
+        {
+            welcomeMessageElement.innerHTML = "Welcome!";
+        }
+
+        function calculateAndNavigate() {
+        var grossAmount = overallTotal;  
+        var tax = overallTotal * 0.14;   
+        var deliveryCharge = 50;         
+        var total = grossAmount + tax + deliveryCharge;
+
+        sessionStorage.setItem("grossAmount", grossAmount.toFixed(2));
+        sessionStorage.setItem("tax", tax.toFixed(2));
+        sessionStorage.setItem("deliveryCharge", deliveryCharge.toFixed(2));
+        sessionStorage.setItem("total", total.toFixed(2));
+
+        window.location.href = "bill.html";
+        }
+
+
+        var sno = 1;
+        var overallTotal = 0;
+        var SGST = 0;
+        var CGST = 0;
+        var Final = 0;
+
+        var data = []; // Array to store the data
+        function add() 
+        {
+            var productName = document.getElementById("pn").value.trim();
+            var capitalizedProductName = productName.charAt(0).toUpperCase() + productName.slice(1);
+            var price = parseFloat(document.getElementById("p").value);
+            var quantity = parseInt(document.getElementById("q").value);
+
+            if (productName === "" || isNaN(price) || isNaN(quantity) || price <= 0 || quantity <= 0) 
+            {
+                alert("Please enter valid values for Product Name, Quantity, and Price.");
+                clr(); // Clear input fields on invalid input
+                return;
+            }
+            var total = price * quantity;
+            if (isNaN(total) || isNaN(overallTotal) || isNaN(SGST) || isNaN(CGST) || isNaN(Final)) 
+            {
+                alert("Invalid total or calculation. Please check your inputs.");
+                clr(); // Clear input fields on invalid input
+                return;
+            }
+            // Store the data in an object
+            var rowData = {
+                sno: sno++,
+                productName: capitalizedProductName,
+                price: price.toFixed(2),
+                quantity: quantity,
+                total: total.toFixed(2)
+            };
+
+            // Add the data to the array
+            data.push(rowData);
+
+            var tb1 = document.getElementById("tb1");
+            var row = tb1.insertRow(-1);
+            var col1 = row.insertCell(0);
+            var col2 = row.insertCell(1);
+            var col3 = row.insertCell(2);
+            var col4 = row.insertCell(3);
+            var col5 = row.insertCell(4);
+
+            col1.innerHTML = rowData.sno;
+            col2.innerHTML = rowData.productName;
+            col3.innerHTML = rowData.price;
+            col4.innerHTML = rowData.quantity;
+            col5.innerHTML = rowData.total;
+
+            // Update calculations based on new values
+            overallTotal += rowData.price * rowData.quantity;
+            SGST = overallTotal / 14;
+            CGST = overallTotal / 14;
+            Final = overallTotal + SGST + CGST;
+
+            showSuccessMessage("Product added successfully!");
+
+            // Update the calculated values in the HTML
+            updateCalculatedValues();
+            clr();
+        }
+
+        function updateCalculatedValues() 
+        {
+            document.getElementById("Overall_Total").innerHTML = overallTotal.toFixed(2);
+            document.getElementById("SGST").innerHTML = SGST.toFixed(2);
+            document.getElementById("CGST").innerHTML = CGST.toFixed(2);
+            document.getElementById("FA").innerHTML = Final.toFixed(2);
+        }
+
+        function clr() 
+        {
+            document.getElementById("pn").value = "";
+            document.getElementById("p").value = "";
+            document.getElementById("q").value = "";
+        }
+    
+        function edit()
+        {
+            var rowIndex = prompt("Enter the S.NO of the row to edit:");
+            var tb1 = document.getElementById("tb1");
+            var rows = tb1.getElementsByTagName("tr");
+
+            if (rowIndex === null || isNaN(rowIndex)) 
+            {
+                alert("Please enter a valid S.NO.");
+                return;
+            }
+
+            rowIndex = parseInt(rowIndex);
+            if (rowIndex <= 0 || rowIndex > rows.length) 
+            {
+                alert("Invalid S.NO. Please enter a valid row number.");
+                return;
+            }
+
+            var selectedRow = rows[rowIndex - 1];
+
+            // Retrieve existing values
+            var productName = selectedRow.cells[1].innerHTML;
+            var price = parseFloat(selectedRow.cells[2].innerHTML);
+            var quantity = parseInt(selectedRow.cells[3].innerHTML);
+
+            // Prompt user for new values
+            var newProductName = prompt("Enter new Product Name:", productName);
+            var newPrice = parseFloat(prompt("Enter new Price:", price));
+            var newQuantity = parseInt(prompt("Enter new Quantity:", quantity));
+
+            var total1 = newPrice * newQuantity;
+
+            // Update the row with new values
+            selectedRow.cells[1].innerHTML = newProductName;
+            selectedRow.cells[2].innerHTML = newPrice.toFixed(2);
+            selectedRow.cells[3].innerHTML = newQuantity;
+            selectedRow.cells[4].innerHTML = total1.toFixed(2);
+
+            // Update calculations based on new values
+            overallTotal = 0;
+            for (var i = 0; i < rows.length; i++) 
+            {
+                var rowTotal = parseFloat(rows[i].cells[4].innerHTML);
+                overallTotal += isNaN(rowTotal) ? 0 : rowTotal;
+            }
+
+            SGST = overallTotal / 14;
+            CGST = overallTotal / 14;
+            Final = overallTotal + SGST + CGST;
+
+            
+            showSuccessMessage("Product edited successfully!");
+
+            // Update the calculated values in the HTML
+            updateCalculatedValues();
+            clr();
+        }
+        
+        function updateCalculatedValues()
+        {
+            document.getElementById("Overall_Total").innerHTML = overallTotal.toFixed(2);
+            document.getElementById("SGST").innerHTML = SGST.toFixed(2);
+            document.getElementById("CGST").innerHTML = CGST.toFixed(2);
+            document.getElementById("FA").innerHTML = Final.toFixed(2);
+        }
+
+        function capitalizeFirstLetter() 
+        {
+            var input = document.getElementById("pn");
+            var inputValue = input.value;
+            input.value = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        }
+       
+        function Allclear() 
+        {
+            document.getElementById("pn").value = "";
+            document.getElementById("p").value = "";
+            document.getElementById("q").value = "";
+            document.getElementById("tb1").innerHTML = "";
+            document.getElementById("Overall_Total").innerHTML = "0.00";
+            document.getElementById("SGST").innerHTML = "0.00";
+            document.getElementById("CGST").innerHTML = "0.00";
+            document.getElementById("FA").innerHTML = "0.00";
+
+            showSuccessMessage("All fields cleared!");
+            sno = 1;
+            overallTotal = 0;
+            SGST = 0;
+            CGST = 0;
+            Final = 0;
+        }
+
+        function showSuccessMessage(message) {
+            alert("Success: " + message);
+        }
+
+        function showErrorMessage(message) {
+            alert("Error: " + message);
+        }
+    </script>
+</body>
+</html>

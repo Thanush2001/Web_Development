@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body{
+            background-image: url("Image/bill.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-top: 10%;
+        }
+        @media only screen and (max-width:500px)
+        {
+            
+        }
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        h1{
+            font-size: 40px;
+        }
+        button {
+            height: 40px;
+            width: 120px;
+            font-size: 20px;
+            outline: none;
+            color: red;
+            font-weight: bold;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        button:hover{
+            background-color: #3e8e41;
+        }
+        button:active{
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        #title{
+            margin-right: 0%;
+            font-size: 50px;
+            background: linear-gradient(rgb(123, 82, 82) 20%,rgb(196, 223, 89));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="title">APPU_BOBBY MALIGAI STORES BILL</h1>
+        <h1>Checkout</h1>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Gross Amount</td>
+                <td>$ <span id="grossAmount"></span></td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>$ <span id="tax"></span></td>
+            </tr>
+            <tr>
+                <td>Delivery Charge</td>
+                <td>$ <span id="deliveryCharge"></span></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>$ <span id="total"></span></td>
+            </tr>
+        </table>
+        <br>
+        <button onclick="handlePayment()">Pay Now</button>
+    </center>
+    <script>
+        var grossAmount = sessionStorage.getItem("grossAmount");
+        var tax = sessionStorage.getItem("tax");
+        var deliveryCharge = sessionStorage.getItem("deliveryCharge");
+        var total = sessionStorage.getItem("total");
+
+        document.getElementById("grossAmount").innerText = grossAmount;
+        document.getElementById("tax").innerText = tax;
+        document.getElementById("deliveryCharge").innerText = deliveryCharge;
+        document.getElementById("total").innerText = total;
+
+    function handlePayment() {
+        
+        var paymentSuccessful = true;
+
+        if (paymentSuccessful) 
+        {
+            sessionStorage.setItem("confirmedTotal", total);
+
+            window.location.href = "confirmation.html";
+        } 
+        else 
+        {
+            alert("Payment failed. Please try again.");
+        }
+        window.location.href = "confirm.html";
+    }
+</script>
+</body>
+
+</html>
